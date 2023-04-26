@@ -1,6 +1,6 @@
 #include "main.h"
 
-void print_buffer(char buffer[], int *buff_ind);
+void print_bufr(char buff[], int *buff_ind);
 
 /**
  * _printf - Printf function
@@ -10,7 +10,7 @@ void print_buffer(char buffer[], int *buff_ind);
 int _printf(const char *format, ...)
 {
 	int i, printed = 0, printed_chars = 0;
-	int flags, width, precision, size, buff_ind = 0;
+	int flgs, wid, pre, size, buff_ind = 0;
 	va_list list;
 	char buffer[BUFF_SIZE];
 
@@ -32,13 +32,13 @@ int _printf(const char *format, ...)
 		else
 		{
 			print_buffer(buffer, &buff_ind);
-			flags = get_flags(format, &i);
-			width = get_width(format, &i, list);
-			precision = get_precision(format, &i, list);
+			flgs = get_flags(format, &i);
+			wid = get_width(format, &i, list);
+			pre = get_precision(format, &i, list);
 			size = get_size(format, &i);
 			++i;
 			printed = hand_pr(format, &i, list, buffer,
-				flags, width, precision, size);
+				flgs, wid, pre, size);
 			if (printed == -1)
 				return (-1);
 			printed_chars += printed;
@@ -57,10 +57,10 @@ int _printf(const char *format, ...)
  * @buffer: Array of chars
  * @buff_ind: Index at which to add next char, represents the length.
  */
-void print_buffer(char buffer[], int *buff_ind)
+void print_bufr(char buff[], int *buff_ind)
 {
 	if (*buff_ind > 0)
-		write(1, &buffer[0], *buff_ind);
+		write(1, &buff[0], *buff_ind);
 
 	*buff_ind = 0;
 }
