@@ -25,13 +25,13 @@ int _printf(const char *format, ...)
 		{
 			buffer[buff_ind++] = format[i];
 			if (buff_ind == BUFF_SIZE)
-				print_buffer(buffer, &buff_ind);
+				print_bufr(buffer, &buff_ind);
 			/* write(1, &format[i], 1);*/
 			printed_chars++;
 		}
 		else
 		{
-			print_buffer(buffer, &buff_ind);
+			print_bufr(buffer, &buff_ind);
 			flgs = get_flags(format, &i);
 			wid = get_width(format, &i, list);
 			pre = get_precision(format, &i, list);
@@ -45,7 +45,7 @@ int _printf(const char *format, ...)
 		}
 	}
 
-	print_buffer(buffer, &buff_ind);
+	print_bufr(buffer, &buff_ind);
 
 	va_end(list);
 
