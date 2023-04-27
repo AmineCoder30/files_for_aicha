@@ -1,6 +1,6 @@
 #include "main.h"
 
-/************************* PRINT UNSIGNED NUMBER *************************/
+/***************function that print insigned number****************/
 /**
  * print_unsigned - Prints an unsigned number.
  * @types: List a of arguments
@@ -10,14 +10,19 @@
  * @pre: pre specification
  * @size: Size specifier
  * Return: Number of chars printed.
+ * author:
+ * amine mohamed
+ * aicha lahnite
  */
 int unsigned_prnt(va_list types, char bfr[],
 	int flgs, int wid, int pre, int size)
 {
 	int i = BUFF_SIZE - 2;
+
 	unsigned long int num = va_arg(types, unsigned long int);
 
 	num = convert_size_unsgnd(num, size);
+
 
 	if (num == 0)
 		bfr[i--] = '0';
@@ -35,7 +40,7 @@ int unsigned_prnt(va_list types, char bfr[],
 	return (write_unsgnd(0, i, bfr, flgs, wid, pre, size));
 }
 
-/************* PRINT UNSIGNED NUMBER IN OCTAL  ****************/
+/************function that print unssigned number in octal ***********/
 /**
  * print_octal - Prints an unsigned number in octal notation
  * @types: Lista of arguments
@@ -77,7 +82,7 @@ int print_octal(va_list types, char bfr[],
 	return (write_unsgnd(0, i, bfr, flgs, wid, pre, size));
 }
 
-/************** PRINT UNSIGNED NUMBER IN HEXADECIMAL **************/
+/************** fn that pr unss num in hexa **************/
 /**
  * print_hexadecimal - Prints an unsigned number in hexadecimal notation
  * @types: Lista of arguments
@@ -95,7 +100,7 @@ int print_hexadecimal(va_list types, char bfr[],
 		flgs, 'x', wid, pre, size));
 }
 
-/************* PRINT UNSIGNED NUMBER IN UPPER HEXADECIMAL **************/
+/*************fn that pr unss num in uphexa**************/
 /**
  * print_hexa_upper - Prints an unsigned number in upper hexadecimal notation
  * @types: Lista of arguments
@@ -113,7 +118,7 @@ int print_hexa_upper(va_list types, char bfr[],
 		flgs, 'X', wid, pre, size));
 }
 
-/************** PRINT HEXX NUM IN LOWER OR UPPER **************/
+/************** fn that pr num in uphexa and lowerhex **************/
 /**
  * print_hexa - Prints a hexadecimal number in lower or upper
  * @types: Lista of arguments

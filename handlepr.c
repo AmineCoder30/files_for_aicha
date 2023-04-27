@@ -1,4 +1,6 @@
 #include "main.h"
+/************function to handle format********/
+
 /**
  * handle_print - Prints an argument based on its type
  * @frmt: Formatted string in which to print the arguments.
@@ -10,6 +12,9 @@
  * @pre: Precision specification
  * @size: Size specifier
  * Return: 1 or 2;
+ * author:
+ * amine mohamed
+ * aicha lahnite
  */
 int hand_pr(const char *frmt, int *index, va_list lst, char buffer[],
 	int flgs, int wid, int pre, int size)

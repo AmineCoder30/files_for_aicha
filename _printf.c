@@ -1,11 +1,17 @@
 #include "main.h"
 
+/*********main printf function*****/
+
+
 void print_bufr(char buff[], int *buff_ind);
 
 /**
  * _printf - Printf function
  * @format: format.
  * Return: Printed chars.
+ * author:
+ * amine mohamed
+ * aicha lahnite
  */
 int _printf(const char *format, ...)
 {
@@ -32,9 +38,9 @@ int _printf(const char *format, ...)
 		else
 		{
 			print_bufr(buffer, &buff_ind);
-			flgs = get_flags(format, &i);
-			wid = get_width(format, &i, list);
-			pre = get_precision(format, &i, list);
+			flgs = get_flg(format, &i);
+			wid = get_wid(format, &i, list);
+			pre = get_pre(format, &i, list);
 			size = get_size(format, &i);
 			++i;
 			printed = hand_pr(format, &i, list, buffer,
@@ -53,8 +59,8 @@ int _printf(const char *format, ...)
 }
 
 /**
- * print_buffer - Prints the contents of the buffer if it exist
- * @buffer: Array of chars
+ * print_bufr - Prints the contents of the buffer if it exist.
+ * @buff: Array of chars
  * @buff_ind: Index at which to add next char, represents the length.
  */
 void print_bufr(char buff[], int *buff_ind)
