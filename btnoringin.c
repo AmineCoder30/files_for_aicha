@@ -158,7 +158,7 @@ int change_fileDir(char **amgt, char __attribute__((__unused__)) **ourfront)
 int helper_shell(char **amgt, char __attribute__((__unused__)) **ourfront)
 {
 	if (!amgt[0])
-		help_all();
+		allHelper();
 	else if (compare_string(amgt[0], "alias") == 0)
 		alsHelper();
 	else if (compare_string(amgt[0], "cd") == 0)

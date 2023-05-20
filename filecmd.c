@@ -71,7 +71,7 @@ int prFileCmd(char *file_path, int *exeRet)
 			return (*exeRet);
 		buffer[b_read] = '\0';
 		line_size += b_read;
-		line = _realloc(line, old_size, line_size);
+		line = fn_reset_sz(line, old_size, line_size);
 		string_concat(line, buffer);
 		old_size = line_size;
 	} while (b_read);
